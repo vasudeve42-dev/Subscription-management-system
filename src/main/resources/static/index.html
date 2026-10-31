@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Subscribely | Dashboard</title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+
+<div class="app-container">
+
+    <!-- Sidebar -->
+    <aside class="sidebar">
+        <div class="brand">
+            <div class="brand-icon">S</div>
+            <h2>Subscribely</h2>
+        </div>
+
+       
+
+        <p class="menu-heading">MENU</p>
+
+        <nav class="sidebar-menu">
+            <a href="#" class="menu-item active">
+                <span>▦</span> Dashboard
+            </a>
+            <a href="/customers.html" class="menu-item">
+                <span>♙</span> Customers
+            </a>
+			<a href="/products.html" class="menu-item">
+			    <span>◈</span> Products
+			</a>
+			<a href="/plans.html" class="menu-item">
+			    <span>▤</span> Plans
+			</a>
+			<a href="/subscriptions.html" class="menu-item">
+			    <span>⟳</span> Subscriptions
+			</a>
+            <a href="#" class="menu-item">
+                <span>▧</span> Invoices
+            </a>
+            <a href="#" class="menu-item">
+                <span>₹</span> Payments
+            </a>
+        </nav>
+
+        <div class="sidebar-bottom">
+            <a href="#" class="menu-item"><span>⚙</span> Settings</a>
+            <a href="#" class="menu-item"><span>?</span> Help Center</a>
+            <div class="profile">
+                <div class="avatar">A</div>
+                <div>
+                    <strong>Administrator</strong>
+                    <small>Admin Account</small>
+                </div>
+            </div>
+        </div>
+    </aside>
+
+    <!-- Main content -->
+    <main class="main-content">
+
+        <header class="topbar">
+            <div>
+                <h3>Welcome back, Admin</h3>
+                <p>Here's what's happening with your subscriptions today.</p>
+            </div>
+
+            <div class="topbar-actions">
+
+                <button class="primary-button" onclick="window.location.href='#'">
+                    + Create Subscription
+                </button>
+            </div>
+        </header>
+
+        <section class="page-heading">
+            <div>
+                <h1>Dashboard Overview</h1>
+                <p>Monitor your subscription business at a glance.</p>
+            </div>
+            <span class="date-label" id="currentDate"></span>
+        </section>
+
+        <!-- Summary cards -->
+        <section class="stats-grid">
+
+            <div class="stat-card purple-card">
+                <div class="stat-top">
+                    <span>Total Revenue</span>
+                    <span class="stat-icon">₹</span>
+                </div>
+                <h2 id="totalRevenue">₹0.00</h2>
+                <p>Revenue collected</p>
+            </div>
+
+            <div class="stat-card">
+                <div class="stat-top">
+                    <span>Customers</span>
+                    <span class="stat-icon purple-icon">♙</span>
+                </div>
+                <h2 id="totalCustomers">0</h2>
+                <p>Registered customers</p>
+            </div>
+
+            <div class="stat-card">
+                <div class="stat-top">
+                    <span>Active Subscriptions</span>
+                    <span class="stat-icon blue-icon">⟳</span>
+                </div>
+                <h2 id="activeSubscriptions">0</h2>
+                <p>Currently active</p>
+            </div>
+
+            <div class="stat-card">
+                <div class="stat-top">
+                    <span>Outstanding Amount</span>
+                    <span class="stat-icon orange-icon">₹</span>
+                </div>
+                <h2 id="outstandingAmount">₹0.00</h2>
+                <p>Pending collection</p>
+            </div>
+
+        </section>
+
+        <!-- Secondary statistics -->
+        <section class="secondary-grid">
+            <div class="mini-card">
+                <span class="mini-label">Total Products</span>
+                <h3 id="totalProducts">0</h3>
+            </div>
+
+            <div class="mini-card">
+                <span class="mini-label">Total Invoices</span>
+                <h3 id="totalInvoices">0</h3>
+            </div>
+
+            <div class="mini-card">
+                <span class="mini-label">Overdue Invoices</span>
+                <h3 id="overdueInvoices" class="danger-text">0</h3>
+            </div>
+        </section>
+
+        <!-- Recent subscriptions -->
+        <section class="table-section">
+            <div class="section-header">
+                <div>
+                    <h2>Recent Subscriptions</h2>
+                    <p>Latest subscription activity</p>
+                </div>
+                <a href="#" class="view-all">View all →</a>
+            </div>
+
+            <div class="table-container">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Customer</th>
+                            <th>Product</th>
+                            <th>Plan</th>
+                            <th>Start Date</th>
+                            <th>End Date</th>
+                            <th>Status</th>
+                        </tr>
+                    </thead>
+                    <tbody id="subscriptionTable">
+                        <tr>
+                            <td colspan="7" class="empty-message">
+                                Loading subscriptions...
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+    </main>
+</div>
+
+<script src="/js/app.js"></script>
+</body>
+</html>

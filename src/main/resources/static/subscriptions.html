@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Subscriptions | Subscribely</title>
+
+<link rel="stylesheet" href="/css/style.css">
+<link rel="stylesheet" href="/css/subscriptions.css">
+</head>
+
+<body>
+
+<div class="app-container">
+
+    <!-- Sidebar -->
+    <aside class="sidebar">
+
+        <h2 class="logo">Subscribely</h2>
+
+        <nav>
+            <a href="index.html" class="menu-item">Dashboard</a>
+            <a href="customers.html" class="menu-item">Customers</a>
+            <a href="products.html" class="menu-item">Products</a>
+            <a href="plans.html" class="menu-item">Plans</a>
+			<a href="/subscriptions.html" class="menu-item active">
+			    <span>⟳</span> Subscriptions
+			</a>
+            <a href="invoices.html" class="menu-item">Invoices</a>
+            <a href="payments.html" class="menu-item">Payments</a>
+        </nav>
+
+    </aside>
+
+    <!-- Main Content -->
+    <main class="main-content">
+
+        <header class="topbar">
+            <div>
+                <h2>Subscriptions</h2>
+                <p>Manage customer subscriptions</p>
+            </div>
+
+            <button class="primary-button" onclick="openSubscriptionForm()">
+                + Create Subscription
+            </button>
+        </header>
+
+        <!-- Subscription Table -->
+        <section class="content-section">
+
+            <div class="section-header">
+                <h3>All Subscriptions</h3>
+
+                <input
+                    type="text"
+                    id="searchSubscription"
+                    placeholder="Search subscriptions..."
+                    oninput="searchSubscriptions()"
+                >
+            </div>
+
+            <div class="table-container">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Customer</th>
+                            <th>Product</th>
+                            <th>Plan</th>
+                            <th>Start Date</th>
+                            <th>End Date</th>
+                            <th>Status</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+
+                    <tbody id="subscriptionTableBody">
+                        <tr>
+                            <td colspan="8">Loading subscriptions...</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+        </section>
+
+    </main>
+
+</div>
+
+<!-- Create Subscription Modal -->
+<div id="subscriptionModal" class="modal">
+
+    <div class="modal-content">
+
+        <div class="modal-header">
+            <h2>Create Subscription</h2>
+            <button type="button" onclick="closeSubscriptionForm()">&times;</button>
+        </div>
+
+        <form id="subscriptionForm">
+
+            <label for="customerId">Customer</label>
+            <select id="customerId" required>
+                <option value="">Select Customer</option>
+            </select>
+
+            <label for="productId">Product</label>
+            <select id="productId" required>
+                <option value="">Select Product</option>
+            </select>
+
+            <label for="planId">Plan</label>
+            <select id="planId" required>
+                <option value="">Select Plan</option>
+            </select>
+
+            <label for="startDate">Start Date</label>
+            <input type="date" id="startDate" required>
+
+            <div class="modal-actions">
+                <button type="button" onclick="closeSubscriptionForm()">
+                    Cancel
+                </button>
+
+                <button type="submit" class="primary-button">
+                    Create
+                </button>
+            </div>
+
+        </form>
+
+    </div>
+
+</div>
+
+<script src="js/subscriptions.js"></script>
+
+</body>
+</html>

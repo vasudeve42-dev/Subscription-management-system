@@ -1,0 +1,178 @@
+.content-section {
+    background: #ffffff;
+    padding: 24px;
+    border-radius: 12px;
+    margin-top: 25px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.04);
+}
+
+.section-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 20px;
+}
+
+.section-header h3 {
+    margin: 0;
+    font-size: 18px;
+}
+
+.section-header input {
+    padding: 10px 14px;
+    border: 1px solid #e0e0e0;
+    border-radius: 7px;
+    outline: none;
+    width: 240px;
+}
+
+.table-container {
+    width: 100%;
+    overflow-x: auto;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    min-width: 850px;
+}
+
+th, td {
+    padding: 14px 12px;
+    text-align: left;
+    border-bottom: 1px solid #eeeeee;
+    font-size: 13px;
+}
+
+th {
+    color: #777777;
+    font-weight: 600;
+    background: #fafafa;
+}
+
+td {
+    color: #444444;
+}
+
+.status-badge {
+    display: inline-block;
+    padding: 5px 10px;
+    border-radius: 20px;
+    font-size: 11px;
+    font-weight: 600;
+}
+
+.status-active {
+    background: #e6f7ed;
+    color: #218653;
+}
+
+.status-cancelled {
+    background: #fdeaea;
+    color: #c0392b;
+}
+
+.cancel-button {
+    padding: 7px 12px;
+    border: none;
+    border-radius: 6px;
+    background: #fff0f0;
+    color: #d64545;
+    cursor: pointer;
+    font-size: 12px;
+}
+
+.cancel-button:hover {
+    background: #ffdddd;
+}
+
+/* Modal */
+
+.modal {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.45);
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    padding: 20px;
+}
+
+.modal-content {
+    background: white;
+    width: 100%;
+    max-width: 450px;
+    padding: 25px;
+    border-radius: 12px;
+    max-height: 90vh;
+    overflow-y: auto;
+}
+
+.modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.modal-header h2 {
+    font-size: 20px;
+    margin: 0;
+}
+
+.modal-header button {
+    border: none;
+    background: none;
+    font-size: 26px;
+    cursor: pointer;
+    color: #777;
+}
+
+#subscriptionForm {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+#subscriptionForm label {
+    font-size: 13px;
+    font-weight: 600;
+    color: #444;
+    margin-top: 5px;
+}
+
+#subscriptionForm input,
+#subscriptionForm select {
+    width: 100%;
+    padding: 11px;
+    border: 1px solid #ddd;
+    border-radius: 7px;
+    outline: none;
+    font-size: 13px;
+}
+
+#subscriptionForm input:focus,
+#subscriptionForm select:focus {
+    border-color: #6c63ff;
+}
+
+.modal-actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+.modal-actions button {
+    padding: 10px 18px;
+    border: none;
+    border-radius: 7px;
+    cursor: pointer;
+}
+
+.modal-actions button:first-child {
+    background: #eeeeee;
+    color: #444;
+}

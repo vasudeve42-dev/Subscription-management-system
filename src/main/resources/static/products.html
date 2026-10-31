@@ -1,0 +1,201 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Subscribely | Products</title>
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/customers.css">
+</head>
+<body>
+
+<div class="app-container">
+
+    <aside class="sidebar">
+        <div class="brand">
+            <div class="brand-icon">S</div>
+            <h2>Subscribely</h2>
+        </div>
+
+        <div class="sidebar-search">
+            <input type="text" placeholder="Search...">
+        </div>
+
+        <p class="menu-heading">MENU</p>
+
+        <nav class="sidebar-menu">
+            <a href="/" class="menu-item"><span>▦</span> Dashboard</a>
+            <a href="/customers.html" class="menu-item"><span>♙</span> Customers</a>
+            <a href="/products.html" class="menu-item active"><span>◈</span> Products</a>
+			<a href="/plans.html" class="menu-item">
+			    <span>▤</span> Plans
+			</a>
+            <a href="#" class="menu-item"><span>⟳</span> Subscriptions</a>
+            <a href="#" class="menu-item"><span>▧</span> Invoices</a>
+            <a href="#" class="menu-item"><span>₹</span> Payments</a>
+        </nav>
+
+        <div class="sidebar-bottom">
+            <a href="#" class="menu-item"><span>⚙</span> Settings</a>
+            <a href="#" class="menu-item"><span>?</span> Help Center</a>
+
+            <div class="profile">
+                <div class="avatar">A</div>
+                <div>
+                    <strong>Administrator</strong>
+                    <small>Admin Account</small>
+                </div>
+            </div>
+        </div>
+    </aside>
+
+    <main class="main-content">
+
+        <header class="topbar">
+            <div>
+                <h3>Welcome back, Admin</h3>
+                <p>Manage your products and services.</p>
+            </div>
+        </header>
+
+        <section class="page-heading">
+            <div>
+                <h1>Products</h1>
+                <p>Manage the products and services offered to customers.</p>
+            </div>
+
+            <button class="primary-button" onclick="openProductModal()">
+                + Add Product
+            </button>
+        </section>
+
+        <section class="customer-summary">
+            <div>
+                <span>Total Products</span>
+                <h2 id="productCount">0</h2>
+                <small>Products in your catalogue</small>
+            </div>
+            <div class="customer-summary-icon">◈</div>
+        </section>
+
+        <section class="table-section">
+
+            <div class="customer-toolbar">
+                <div>
+                    <h2>Product List</h2>
+                    <p>View and manage all your products.</p>
+                </div>
+
+                <input
+                    type="text"
+                    id="productSearch"
+                    placeholder="Search products..."
+                    oninput="searchProducts()"
+                >
+            </div>
+
+            <div class="table-container">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Product Name</th>
+                            <th>Type</th>
+                            <th>Sales Price</th>
+                            <th>Cost Price</th>
+                            <th>Notes</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+
+                    <tbody id="productTable">
+                        <tr>
+                            <td colspan="7" class="empty-message">
+                                Loading products...
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+        </section>
+
+    </main>
+</div>
+
+<!-- Add/Edit Product Modal -->
+<div class="modal-overlay" id="productModal">
+
+    <div class="modal">
+
+        <div class="modal-header">
+            <div>
+                <h2 id="modalTitle">Add Product</h2>
+                <p>Enter the product information below.</p>
+            </div>
+
+            <button class="close-button" onclick="closeProductModal()">×</button>
+        </div>
+
+        <form id="productForm">
+
+            <input type="hidden" id="productId">
+
+            <div class="form-group">
+                <label for="name">Product Name *</label>
+                <input type="text" id="name" required>
+            </div>
+
+            <div class="form-group">
+                <label for="type">Product Type</label>
+                <select id="type">
+                    <option value="">Select type</option>
+                    <option value="Software">Software</option>
+                    <option value="Service">Service</option>
+                    <option value="Digital Product">Digital Product</option>
+                    <option value="Other">Other</option>
+                </select>
+            </div>
+
+            <div class="form-row">
+
+                <div class="form-group">
+                    <label for="salesPrice">Sales Price (₹) *</label>
+                    <input type="number" id="salesPrice"
+                        min="0.01" step="0.01" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="costPrice">Cost Price (₹)</label>
+                    <input type="number" id="costPrice"
+                        min="0" step="0.01">
+                </div>
+
+            </div>
+
+            <div class="form-group">
+                <label for="notes">Notes</label>
+                <textarea id="notes" rows="3"></textarea>
+            </div>
+
+            <div class="modal-actions">
+                <button type="button" class="cancel-button"
+                    onclick="closeProductModal()">
+                    Cancel
+                </button>
+
+                <button type="submit" class="primary-button" id="saveButton">
+                    Save Product
+                </button>
+            </div>
+
+        </form>
+
+    </div>
+</div>
+
+<script src="/js/products.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,200 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Subscribely | Customers</title>
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/customers.css">
+</head>
+<body>
+
+<div class="app-container">
+
+    <aside class="sidebar">
+        <div class="brand">
+            <div class="brand-icon">S</div>
+            <h2>Subscribely</h2>
+        </div>
+
+        <div class="sidebar-search">
+            <input type="text" placeholder="Search...">
+        </div>
+
+        <p class="menu-heading">MENU</p>
+
+        <nav class="sidebar-menu">
+            <a href="/" class="menu-item"><span>▦</span> Dashboard</a>
+            <a href="/customers.html" class="menu-item active"><span>♙</span> Customers</a>
+			<a href="/products.html" class="menu-item">
+			    <span>◈</span> Products
+			</a>
+			<a href="/plans.html" class="menu-item">
+			    <span>▤</span> Plans
+			</a>
+            <a href="#" class="menu-item"><span>⟳</span> Subscriptions</a>
+            <a href="#" class="menu-item"><span>▧</span> Invoices</a>
+            <a href="#" class="menu-item"><span>₹</span> Payments</a>
+        </nav>
+
+        <div class="sidebar-bottom">
+            <a href="#" class="menu-item"><span>⚙</span> Settings</a>
+            <a href="#" class="menu-item"><span>?</span> Help Center</a>
+
+            <div class="profile">
+                <div class="avatar">A</div>
+                <div>
+                    <strong>Administrator</strong>
+                    <small>Admin Account</small>
+                </div>
+            </div>
+        </div>
+    </aside>
+
+    <main class="main-content">
+
+        <header class="topbar">
+            <div>
+                <h3>Welcome back, Admin</h3>
+                <p>Manage your customer information.</p>
+            </div>
+
+            <div class="topbar-actions">
+                <button class="icon-button">⌕</button>
+                <button class="icon-button">♧</button>
+            </div>
+        </header>
+
+        <section class="page-heading">
+            <div>
+                <h1>Customers</h1>
+                <p>Manage and keep track of your customers.</p>
+            </div>
+
+            <button class="primary-button" onclick="openCustomerModal()">
+                + Add Customer
+            </button>
+        </section>
+
+        <section class="customer-summary">
+            <div>
+                <span>Total Customers</span>
+                <h2 id="customerCount">0</h2>
+                <small>Registered customers</small>
+            </div>
+            <div class="customer-summary-icon">♙</div>
+        </section>
+
+        <section class="table-section">
+
+            <div class="customer-toolbar">
+                <div>
+                    <h2>Customer List</h2>
+                    <p>View and manage all registered customers.</p>
+                </div>
+
+                <input
+                    type="text"
+                    id="customerSearch"
+                    placeholder="Search customers..."
+                    oninput="searchCustomers()"
+                >
+            </div>
+
+            <div class="table-container">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Customer Name</th>
+                            <th>Email</th>
+                            <th>Phone</th>
+                            <th>Company</th>
+                            <th>Address</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+
+                    <tbody id="customerTable">
+                        <tr>
+                            <td colspan="7" class="empty-message">
+                                Loading customers...
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+        </section>
+
+    </main>
+</div>
+
+<!-- Add/Edit Customer Modal -->
+<div class="modal-overlay" id="customerModal">
+
+    <div class="modal">
+
+        <div class="modal-header">
+            <div>
+                <h2 id="modalTitle">Add Customer</h2>
+                <p>Enter the customer's information below.</p>
+            </div>
+
+            <button class="close-button" onclick="closeCustomerModal()">×</button>
+        </div>
+
+        <form id="customerForm">
+
+            <input type="hidden" id="customerId">
+
+            <div class="form-group">
+                <label for="name">Customer Name *</label>
+                <input type="text" id="name" required>
+            </div>
+
+            <div class="form-group">
+                <label for="email">Email Address *</label>
+                <input type="email" id="email" required>
+            </div>
+
+            <div class="form-row">
+
+                <div class="form-group">
+                    <label for="phone">Phone Number</label>
+                    <input type="tel" id="phone">
+                </div>
+
+                <div class="form-group">
+                    <label for="companyName">Company Name</label>
+                    <input type="text" id="companyName">
+                </div>
+
+            </div>
+
+            <div class="form-group">
+                <label for="address">Address</label>
+                <textarea id="address" rows="3"></textarea>
+            </div>
+
+            <div class="modal-actions">
+                <button type="button" class="cancel-button"
+                    onclick="closeCustomerModal()">
+                    Cancel
+                </button>
+
+                <button type="submit" class="primary-button" id="saveButton">
+                    Save Customer
+                </button>
+            </div>
+
+        </form>
+
+    </div>
+</div>
+
+<script src="/js/customers.js"></script>
+
+</body>
+</html>
